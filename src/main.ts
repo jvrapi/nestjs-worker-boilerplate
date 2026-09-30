@@ -14,6 +14,9 @@ async function bootstrap() {
   );
   app.useLogger(app.get(Logger));
   app.enableShutdownHooks();
-  await app.listen(process.env.PORT ?? 3000, '0.0.0.0');
+  await app.listen(
+    process.env.PORT ?? 3000,
+    process.env.BIND_ADDRESS ?? '0.0.0.0',
+  );
 }
 await bootstrap();
