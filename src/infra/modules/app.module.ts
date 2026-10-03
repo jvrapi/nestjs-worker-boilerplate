@@ -3,9 +3,10 @@ import { ConfigModule } from '@nestjs/config';
 import { LoggerModule } from 'nestjs-pino';
 import { HealthModule } from './health.module.js';
 import { pinoConfig } from '../configs/pino.config.js';
-import { validateEnv } from '../configs/env.schema.js';
-import { AppConfigService } from '../services/app-config.service.js';
+import { validateEnv } from '../configs/schemas/envs/env.schema.js';
+
 import { AppConfigModule } from './config.module.js';
+import { AppConfigService } from '@/application/ports/app-config.service.js';
 
 @Module({
   imports: [

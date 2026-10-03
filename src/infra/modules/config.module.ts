@@ -1,13 +1,13 @@
 import { Global, Module } from '@nestjs/common';
-import { AppConfig } from '@/application/ports/app-config.js';
-import { AppConfigService } from '../services/app-config.service.js';
+import { AppConfigService as Port } from '@/application/ports/app-config.service.js';
+import { AppConfigService } from '../services/config/app-config.service.js';
 
 @Global()
 @Module({
   providers: [
     AppConfigService,
-    { provide: AppConfig, useExisting: AppConfigService },
+    { provide: Port, useExisting: AppConfigService },
   ],
-  exports: [AppConfigService, AppConfig],
+  exports: [Port],
 })
 export class AppConfigModule {}
